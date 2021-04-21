@@ -7,6 +7,8 @@ import processing.core.PApplet;
 public class ScoreDisplay extends PApplet {
 	String score = "DEFGABcd";
 	ArrayList<Note> notes;
+
+	final int NUM = 5;
 	// String score = "D2E2F2G2A2B2c2d2";
 	// String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
@@ -27,8 +29,8 @@ public class ScoreDisplay extends PApplet {
 
 	public void draw() {
 		background(255);
-		drawStaveLines(5);
-
+		drawStaveLines();
+		drawNotes();
 	}
 
 	void loadNotes() {
@@ -45,7 +47,7 @@ public class ScoreDisplay extends PApplet {
 				}
 			}
 
-			Note note = new Note(currentNote, currentDuration);
+			Note note = new Note(this, currentNote, currentDuration);
 			notes.add(note);
 		}
 	}
@@ -57,17 +59,22 @@ public class ScoreDisplay extends PApplet {
 		}
 	}
 
-	void drawStaveLines(int num) {
+	void drawStaveLines() {
 		strokeWeight(5);
-		int verticalGap = height / (num + 2);
-		for (int i = 0; i < num; i++) {
+		int verticalGap = height / (NUM + 2);
+		for (int i = 0; i < NUM; i++) {
 			float yPos = (float) (i * verticalGap) + verticalGap;
-			line(0.2f * width, yPos + verticalGap / 2, 0.8f * width, yPos + verticalGap / 2);
+			line(0.1f * width, yPos + verticalGap / 2, 0.9f * width, yPos + verticalGap / 2);
 		}
 	}
 
 	void drawNotes() {
-
+		int verticalGap = height / (NUM + 2);
+		int pos = 0;
+		for (Note note : notes) {
+			note.draw(verticalGap, pos, NUM);
+			pos++;
+		}
 	}
 
 }
