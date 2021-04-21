@@ -47,5 +47,6 @@ public class Note {
 
         sc.fill(0);
         sc.ellipse(xPos, yPos, size, size);
+        sc.line(xPos + size / 2, yPos, xPos + size / 2, yPos - size - (size / 2));
     }
 }
