@@ -37,13 +37,15 @@ public class Note {
     }
 
     public void draw(float verticalGap, int pos, int num) {
+        int size = 30;
         int xGap = 100;
-        float xPos = (0.1f * sc.width) + (pos * xGap);
+        float xPos = (0.1f * sc.width) + xGap / 2 + (pos * xGap);
 
         int straveNum = values.get(note) / 2;
-        float distanceFromStrave = (straveNum % 2) == 0 ? (verticalGap / 2) : 0;
+        float distanceFromStrave = (values.get(note) % 2) == 0 ? -16 : (verticalGap / 2);
         float yPos = verticalGap + (straveNum * verticalGap) + distanceFromStrave;
 
-        sc.ellipse(xPos, yPos, 50, 50);
+        sc.fill(0);
+        sc.ellipse(xPos, yPos, size, size);
     }
 }
