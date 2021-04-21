@@ -21,12 +21,31 @@ public class ScoreDisplay extends PApplet {
 
 	public void setup() {
 		notes = new ArrayList<Note>();
-
+		loadNotes();
 	}
 
 	public void draw() {
 		background(255);
 
+	}
+
+	void loadNotes() {
+
+		for (int i = 0; i < score.length(); i++) {
+			char currentNote = score.charAt(i);
+			int currentDuration = 1;
+
+			if (i + 1 != score.length()) {
+				char nextChar = score.charAt(i + 1);
+				if (Character.isDigit(nextChar)) {
+					currentDuration = nextChar - '0';
+					i++;
+				}
+			}
+
+			Note note = new Note(currentNote, currentDuration);
+			notes.add(note);
+		}
 	}
 
 	void drawNotes() {
