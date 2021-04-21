@@ -36,10 +36,12 @@ public class Note {
         this.duration = duration;
     }
 
-    public void draw(float verticalGap, int pos, int num) {
+    public void draw(float verticalGap, int pos, int num, int length) {
         int size = 30;
-        int xGap = 100;
+        float xGap = sc.width / (length * 0.8f);
         float xPos = (0.1f * sc.width) + xGap / 2 + (pos * xGap);
+        // float xPos = PApplet.map(pos, 0, length, (0.1f * sc.width), (0.9f *
+        // sc.width));
 
         int straveNum = values.get(note) / 2;
         float distanceFromStrave = (values.get(note) % 2) == 0 ? -16 : (verticalGap / 2);
@@ -47,6 +49,11 @@ public class Note {
 
         sc.fill(0);
         sc.ellipse(xPos, yPos, size, size);
-        sc.line(xPos + size / 2, yPos, xPos + size / 2, yPos - size - (size / 2));
+        sc.line(xPos + size / 2, yPos, xPos + size / 2, yPos - 2 * size);
+
+        if (duration == 2) {
+            sc.line(xPos + size / 2, yPos - 2 * size, xPos + size, yPos - size + (size / 2));
+
+        }
     }
 }
