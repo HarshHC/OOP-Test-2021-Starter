@@ -27,6 +27,7 @@ public class ScoreDisplay extends PApplet {
 
 	public void draw() {
 		background(255);
+		drawStaveLines(5);
 
 	}
 
@@ -54,7 +55,15 @@ public class ScoreDisplay extends PApplet {
 			println(note.getNote() + "\t" + note.getDuration() + "\t"
 					+ (note.getDuration() == 1 ? "Quaver" : "Crotchet"));
 		}
+	}
 
+	void drawStaveLines(int num) {
+		strokeWeight(5);
+		int verticalGap = height / (num + 2);
+		for (int i = 0; i < num; i++) {
+			float yPos = (float) (i * verticalGap) + verticalGap;
+			line(0.2f * width, yPos + verticalGap / 2, 0.8f * width, yPos + verticalGap / 2);
+		}
 	}
 
 	void drawNotes() {
