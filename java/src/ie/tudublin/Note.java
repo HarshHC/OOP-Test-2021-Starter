@@ -55,8 +55,9 @@ public class Note {
 
         if (duration == 2) {
             sd.line(xPos + size / 2, yPos - 2 * size, xPos + size, yPos - size);
-
         }
+        sd.fill(0);
+        sd.stroke(0);
     }
 
     public void highlightOnHover() {
