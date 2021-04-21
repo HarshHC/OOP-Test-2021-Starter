@@ -49,7 +49,6 @@ public class Note {
         yPos = PApplet.map(straveNum, 0, 5, 0.3f * sd.height, 0.7f * sd.height) + distanceFromStrave + size / 2;
 
         sd.ellipse(xPos, yPos, size, size);
-        sd.fill(0);
         sd.textSize(20);
         sd.text(note, xPos, 0.2f * sd.height);
         sd.line(xPos + size / 2, yPos, xPos + size / 2, yPos - 2 * size);
@@ -63,7 +62,10 @@ public class Note {
     public void highlightOnHover() {
         if (sd.mouseX > xPos - (size / 2) && sd.mouseX < xPos + (size / 2)) {
             sd.fill(255, 0, 0);
-
+            sd.stroke(255, 0, 0);
+        } else {
+            sd.fill(0);
+            sd.stroke(0);
         }
     }
 

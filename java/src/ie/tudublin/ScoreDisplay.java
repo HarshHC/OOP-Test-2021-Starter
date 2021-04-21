@@ -61,9 +61,9 @@ public class ScoreDisplay extends PApplet {
 
 	void drawStaveLines() {
 		strokeWeight(2);
-		// int verticalGap = height / (NUM + 2);
 		for (int i = 0; i < NUM; i++) {
 			float yPos = map(i, 0, NUM, 0.3f * height, 0.7f * height);
+			fill(0);
 			line(0.1f * width, yPos, 0.9f * width, yPos);
 		}
 	}
