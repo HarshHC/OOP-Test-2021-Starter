@@ -37,9 +37,8 @@ public class Note {
         this.duration = duration;
     }
 
-    public void draw(float verticalGap, int pos, int num, int length) {
+    public void draw(int pos, int num, int length) {
         size = (0.7f * sd.height - 0.3f * sd.height) / 5;
-        float xGap = 45;
         // float xPos = (0.1f * sd.width) + xGap / 2 + (pos * xGap);
         xPos = PApplet.map(pos, 0, length, 0.15f * sd.width, 0.9f * sd.width);
 
