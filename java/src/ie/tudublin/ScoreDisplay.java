@@ -61,10 +61,10 @@ public class ScoreDisplay extends PApplet {
 
 	void drawStaveLines() {
 		strokeWeight(2);
-		int verticalGap = height / (NUM + 2);
+		// int verticalGap = height / (NUM + 2);
 		for (int i = 0; i < NUM; i++) {
-			float yPos = (float) (i * verticalGap) + verticalGap;
-			line(0.1f * width, yPos + verticalGap / 2, 0.9f * width, yPos + verticalGap / 2);
+			float yPos = map(i, 0, NUM, 0.3f * height, 0.7f * height);
+			line(0.1f * width, yPos, 0.9f * width, yPos);
 		}
 	}
 
