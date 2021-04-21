@@ -67,6 +67,7 @@ public class ScoreDisplay extends PApplet {
 	}
 
 	void drawNotes() {
+
 	}
 
 }
